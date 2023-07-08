@@ -8,6 +8,8 @@ public class AssetLoader : MonoBehaviour
 
     public List<GameObject> Items;
 
+    public GameObject Entrance;
+
     public GameObject RegularShelf;
 
     public GameObject WallSide;

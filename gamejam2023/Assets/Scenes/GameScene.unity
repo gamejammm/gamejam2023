@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 310388790}
   - component: {fileID: 310388793}
   - component: {fileID: 310388792}
+  - component: {fileID: 310388794}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -208,6 +209,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644f1747e3901f443aafb8584006218d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &310388794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310388789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f713f8d3aa48c468cb8d4a3b6f134c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 7518463523599164292, guid: 87584154e662d174091d8bc7dae32f79, type: 3}
+  Entrance: {fileID: 4500970778342149689, guid: 42f7c970944dbf44d96c79de920fd44e, type: 3}
+  RegularShelf: {fileID: 4275571221119245590, guid: 0e43663a623924b46aa96741edf835bb, type: 3}
+  WallSide: {fileID: 7667628295263418075, guid: 2e14435f6716f9944aa066bc617ec069, type: 3}
+  WallEdgeInside: {fileID: 7034364723182174117, guid: f1bd4cca9439a304ebfc57c2c09ff54d, type: 3}
+  WallEdgeOutside: {fileID: 1543275370524634286, guid: 82858faa0b9eecc4eb264377b6d06ad4, type: 3}
+  FloorTile: {fileID: 6584377139542612697, guid: 63a751e14e3f0c942a438a088111db5e, type: 3}
+  DepositMachine: {fileID: 8159038513502288977, guid: a0c039f9917160d40bc846906eff4cc4, type: 3}
 --- !u!1 &1607872594
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,25 +38,37 @@ public class Map : MonoBehaviour
         litterPlan.Remove(new Vector2Int(x, y));
     }
 
-    public Vector2Int GetRandomFreeFloor() {
+    public Vector2Int? GetRandomFreeFloor() {
         var coords = floorCoords[Random.Range(0, floorCoords.Count - 1)];
 
-        while (litterPlan.ContainsKey(coords)) {
+        int maxRetries = 10;
+        while (litterPlan.ContainsKey(coords) && maxRetries > 0) {
             coords = floorCoords[Random.Range(0, floorCoords.Count - 1)];
+            maxRetries -= 1;
         }
 
-        return coords;
+        if (!litterPlan.ContainsKey(coords)) {
+            return coords;
+        } else {
+            return null;
+        }
     }
 
-    public Shelf GetRandomFilledShelf() {
+    public Shelf? GetRandomFilledShelf() {
         List<Vector2Int> keyList = new List<Vector2Int>(shelfPlan.Keys);
         var coords = keyList[Random.Range(0, keyList.Count - 1)];
 
-        while (shelfPlan[coords].shelfItem == null) {
+        int maxRetries = 10;
+        while (shelfPlan[coords].shelfItem == null && maxRetries > 0) {
             coords = keyList[Random.Range(0, keyList.Count - 1)];
+            maxRetries -= 1;
         }
 
-        return shelfPlan[coords];
+        if (shelfPlan[coords].shelfItem != null) {
+            return shelfPlan[coords];
+        } else {
+            return null;
+        }
     }
 
 }

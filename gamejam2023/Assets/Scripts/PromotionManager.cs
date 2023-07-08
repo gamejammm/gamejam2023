@@ -37,7 +37,8 @@ public class PromotionManager : MonoBehaviour
             promo.validUntil -= deltaTime;
             if (promo.validUntil < 0) {
                 promo.item.SetDiscount(0f);
-                runningPromotions.RemoveAt(index);       
+                runningPromotions.RemoveAt(index);      
+                print("promotion ended"); 
             } else {
                 index += 1;
             }
@@ -51,11 +52,18 @@ public class PromotionManager : MonoBehaviour
 
     private void StartPromotion() {
         Shelf shelf = map.GetRandomFilledShelf();
+
+        if (shelf == null) {
+            return;
+        }
+
         float discount = discounts[Random.Range(0, discounts.Count)];
 
         Item item = (Item) shelf.shelfItem;
         item.SetDiscount(discount);
 
         runningPromotions.Add(new Promotion(item, promotionDurationInS));
+
+        print("new promotion");
     }
 }

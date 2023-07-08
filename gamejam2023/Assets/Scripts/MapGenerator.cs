@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using FloorPlan = System.Collections.Generic.Dictionary<UnityEngine.Vector2Int, MapElementType>;
+using ShelfPlan = System.Collections.Generic.Dictionary<UnityEngine.Vector2Int, Shelf>;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class MapGenerator : MonoBehaviour
     void GenerateMap(int width, int height) 
     {
         FloorPlan floorPlan = GenerateFloorPlan(width, height);
+        ShelfPlan shelfPlan = new ShelfPlan();
 
         for (int x = 0; x < width; x++)
         {
@@ -61,7 +63,7 @@ public class MapGenerator : MonoBehaviour
                     case MapElementType.Floor: 
                         prefab = floorPrefab;
                         break;
-                    case MapElementType.Shelf: 
+                    case MapElementType.Shelf:
                         prefab = shelfPrefab;
                         break;
                     case MapElementType.Wall:
@@ -71,9 +73,16 @@ public class MapGenerator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(prefab, coords, rotation);
+                GameObject o = Instantiate(prefab, coords, rotation);
+
+                if (floorPlan[coords2d] == MapElementType.Shelf) {
+                    shelfPlan[coords2d] = (Shelf) o.GetComponent<Shelf>();
+                }
             }
         }
+
+        Map map = (Map) GetComponent<Map>();
+        map.SetFloorPlan(floorPlan, shelfPlan);
         
     }
 

@@ -12,7 +12,8 @@ public class Shelf : MonoBehaviour
 
     void Start()
     {
-        shelfCollider =  this.GetComponent<Collider>();
+        shelfItem = null;
+        shelfCollider = this.GetComponent<Collider>();
     }
 
     public void AddItem(Item item)

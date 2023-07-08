@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 862958322}
   - component: {fileID: 862958323}
+  - component: {fileID: 862958324}
   m_Layer: 0
-  m_Name: MapGenerator
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862958320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -175,6 +176,20 @@ MonoBehaviour:
   entrancePrefab: {fileID: 4500970778342149689, guid: 42f7c970944dbf44d96c79de920fd44e, type: 3}
   depositMachinePrefab: {fileID: 8159038513502288977, guid: a0c039f9917160d40bc846906eff4cc4, type: 3}
   floorPrefab: {fileID: 6584377139542612697, guid: 63a751e14e3f0c942a438a088111db5e, type: 3}
+--- !u!114 &862958324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862958320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31d2364966c004a8bd287c1ebb7f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promotionDurationInS: 30
+  parallelPromotions: 3
 --- !u!1 &1450848424
 GameObject:
   m_ObjectHideFlags: 0

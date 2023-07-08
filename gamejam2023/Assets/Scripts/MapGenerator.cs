@@ -80,8 +80,8 @@ public class MapGenerator : MonoBehaviour
     private FloorPlan GenerateFloorPlan(int width, int height) {
         FloorPlan elements = new FloorPlan();
 
-        int entranceX = Random.Range(1, width - 1);
-        int depositX = Random.Range(1, width - 1);
+        int entranceX = Random.Range(2, width - 2);
+        int depositX = Random.Range(2, width - 2);
 
         for (int x = 0; x < width; x++)
         {

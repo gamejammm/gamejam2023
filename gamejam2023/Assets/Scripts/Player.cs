@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 motion = new Vector3();
         if (Input.GetKey(KeyCode.W))
         {
@@ -47,6 +48,8 @@ public class Player : MonoBehaviour
         {
             _controller.Move(motion);
         }
+
+        this.gameObject.transform.position = new Vector3(this.transform.position.x, 0.37f, this.transform.position.z);
         _SetCamera();
     }
 

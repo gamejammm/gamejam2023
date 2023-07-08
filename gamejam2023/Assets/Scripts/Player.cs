@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     private CharacterController _controller;
     private Camera _camera;
+    private Transform _visual;
     
     
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     {
         _camera = Camera.main;
         _controller = GetComponent<CharacterController>();
+        _visual = this.transform.GetChild(0);
         _SetCamera();
     }
 
@@ -53,5 +55,7 @@ public class Player : MonoBehaviour
         Vector3 position = transform.position;
         _camera.transform.position = position + camVector;
         _camera.transform.LookAt(position);
+        _visual.LookAt(_camera.transform.position);
+        _visual.Rotate(Vector3.right, 90);
     }
 }

@@ -44,7 +44,8 @@ public class Item : MonoBehaviour
     protected void LookAtCamera()
     {
         Vector3 position = transform.position;
-        visual.LookAt(_camera.transform.position);
+        Vector3 lookat = position + -_camera.transform.forward;
+        visual.LookAt(lookat);
         visual.Rotate(Vector3.right, 90);
     }
 }

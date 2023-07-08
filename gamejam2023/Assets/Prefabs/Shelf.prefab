@@ -152,4 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stock: 100000
   shelfItem: {fileID: 0}
-  itemIndicatorZOffset: 2
+  itemIndicatorZOffset: 1

@@ -44,8 +44,6 @@ public class Item : MonoBehaviour
         Vector3 position = transform.position;
         Vector3 lookat = position + -_camera.transform.forward;
         transform.LookAt(lookat);
-        transform.Rotate(Vector3.right, 90);
-        transform.Rotate(Vector3.forward, 180);
 
     }
 }

@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 30, y: 20}
-  stockedShelfsRatio: 0.2
+  stockedShelfsRatio: 0
 --- !u!4 &310388791
 Transform:
   m_ObjectHideFlags: 0
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703fa5d0ee3640648b8bd701a832e0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShopPlayer: {fileID: 593808587}
 --- !u!1001 &463890227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,11 +393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: up.z
-      value: -0.1
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: right.x
-      value: -0.1
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: camVector.y
@@ -415,6 +416,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+--- !u!114 &593808587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+  m_PrefabInstance: {fileID: 463890227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c943b3b7d1a224a94daf1c64e598f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1607872594
 GameObject:
   m_ObjectHideFlags: 0

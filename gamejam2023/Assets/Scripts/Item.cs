@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
 
     public Collider itemCollider;
 
+    private float discount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,13 @@ public class Item : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public float GetTotalPrice() {
+        return discount * (1 - discount);
+    }
+
+    public void SetDiscount(float discount) {
+        this.discount = discount;
     }
 }

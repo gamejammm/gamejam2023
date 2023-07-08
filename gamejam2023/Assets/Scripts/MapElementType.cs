@@ -1,4 +1,4 @@
-enum MapElementType {
+public enum MapElementType {
     DepositMachine,
     Entrance,
     Floor,

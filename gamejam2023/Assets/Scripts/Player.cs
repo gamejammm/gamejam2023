@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public Vector3 up;
     public Vector3 camVector;
 
+    public GameObject visualFront;
+    public GameObject visualBack;
+
     private CharacterController _controller;
     private Camera _camera;
     private Transform _visual;
@@ -30,18 +33,30 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             motion += this.up * Time.deltaTime;
+            visualBack.SetActive(true);
+            visualFront.SetActive(false);
         }
         if (Input.GetKey(KeyCode.A))
         {
             motion -= this.right * Time.deltaTime;
+            visualBack.GetComponent<SpriteRenderer>().flipX = false;
+            visualFront.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             motion -= this.up * Time.deltaTime;
+            visualBack.SetActive(false);
+            visualFront.SetActive(true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             motion += this.right * Time.deltaTime;
+            visualBack.GetComponent<SpriteRenderer>().flipX = true;
+            visualFront.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) {
+            visualBack.SetActive(false);
+            visualFront.SetActive(true);
         }
 
         if (_controller != null)

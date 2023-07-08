@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - {fileID: 7518463523599164292, guid: 87584154e662d174091d8bc7dae32f79, type: 3}
+  - {fileID: 2230922232000274378, guid: e0eb9bb93d9845540b62d6f2f921d89e, type: 3}
   Entrance: {fileID: 4500970778342149689, guid: 42f7c970944dbf44d96c79de920fd44e, type: 3}
   RegularShelf: {fileID: 4275571221119245590, guid: 0e43663a623924b46aa96741edf835bb, type: 3}
   WallSide: {fileID: 7667628295263418075, guid: 2e14435f6716f9944aa066bc617ec069, type: 3}

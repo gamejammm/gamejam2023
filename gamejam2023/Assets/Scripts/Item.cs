@@ -15,14 +15,12 @@ public class Item : MonoBehaviour
 
     private Camera _camera;
 
-    private Transform visual;
     
     
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
-        visual = this.transform.GetChild(0);
         LookAtCamera();
         itemCollider = this.GetComponent<Collider>();
     }
@@ -45,7 +43,9 @@ public class Item : MonoBehaviour
     {
         Vector3 position = transform.position;
         Vector3 lookat = position + -_camera.transform.forward;
-        visual.LookAt(lookat);
-        visual.Rotate(Vector3.right, 90);
+        transform.LookAt(lookat);
+        transform.Rotate(Vector3.right, 90);
+        transform.Rotate(Vector3.forward, 180);
+
     }
 }

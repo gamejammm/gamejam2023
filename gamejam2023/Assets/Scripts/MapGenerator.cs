@@ -180,7 +180,11 @@ public class MapGenerator : MonoBehaviour
 
     private void StockShelf(Shelf shelf) {
         var items = assetLoader.Items;
-        Item item = Instantiate(items[Random.Range(0, items.Count - 1)]).GetComponent<Item>();
+        int index = Random.Range(0, items.Count);
+        Debug.LogError(index);
+        Debug.LogError("ITEMS COUNT: " + items.Count);
+
+        Item item = Instantiate(items[index]).GetComponent<Item>();
         
         shelf.SetItem(item);
     }

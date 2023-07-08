@@ -44,7 +44,7 @@ public class AssetLoader : MonoBehaviour
         Items = new List<GameObject>();
 
 
-        Debug.LogError(PathToItemsFolder);
+        //Debug.LogError(PathToItemsFolder);
         string[] itemsFileNames = Directory.GetFiles(PathToItemsFolder);
 
 
@@ -54,7 +54,7 @@ public class AssetLoader : MonoBehaviour
         {
             string ttt = Path.GetFileNameWithoutExtension(itemName);
 
-            Debug.LogError(ttt);
+            // Debug.LogError(ttt);
             GameObject itemObject = Resources.Load("Items/" + ttt, typeof(GameObject)) as GameObject;
             if(itemObject != null)
             {

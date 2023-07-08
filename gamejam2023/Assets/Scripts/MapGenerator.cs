@@ -10,6 +10,8 @@ public class MapGenerator : MonoBehaviour
 
     public Vector2Int mapSize;
 
+    public float stockedShelfsRatio;
+
     private AssetLoader assetLoader;
 
     // string format: top-right-bottom-left
@@ -37,6 +39,7 @@ public class MapGenerator : MonoBehaviour
     {
         FloorPlan floorPlan = GenerateFloorPlan(width, height);
         ShelfPlan shelfPlan = new ShelfPlan();
+        Vector3 entrance = new Vector3();
 
         for (int x = 0; x < width; x++)
         {
@@ -55,6 +58,7 @@ public class MapGenerator : MonoBehaviour
                         break;
                     case MapElementType.Entrance: 
                         prefab = assetLoader.Entrance;
+                        entrance = new Vector3(coords.x, coords.y, coords.z);
                         break;
                     case MapElementType.Floor: 
                         prefab = assetLoader.FloorTile;
@@ -72,13 +76,19 @@ public class MapGenerator : MonoBehaviour
                 GameObject o = Instantiate(prefab, coords, rotation);
 
                 if (floorPlan[coords2d] == MapElementType.Shelf) {
-                    shelfPlan[coords2d] = (Shelf) o.GetComponent<Shelf>();
+                    Shelf shelf = (Shelf) o.GetComponent<Shelf>();
+
+                    if (Random.Range(0f, 1f) < stockedShelfsRatio) {
+                        StockShelf(shelf);
+                    }
+
+                    shelfPlan[coords2d] = shelf;
                 }
             }
         }
 
         Map map = (Map) GetComponent<Map>();
-        map.SetFloorPlan(floorPlan, shelfPlan);
+        map.Setup(floorPlan, shelfPlan, entrance);
         
     }
 
@@ -167,4 +177,11 @@ public class MapGenerator : MonoBehaviour
         return nString;
     }
 
+
+    private void StockShelf(Shelf shelf) {
+        var items = assetLoader.Items;
+        Item item = Instantiate(items[Random.Range(0, items.Count - 1)]).GetComponent<Item>();
+        
+        shelf.SetItem(item);
+    }
 }

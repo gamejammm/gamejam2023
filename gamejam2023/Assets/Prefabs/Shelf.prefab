@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stock: 100000
-  shelfItem: {fileID: 9029091022729939840, guid: 87584154e662d174091d8bc7dae32f79, type: 3}
+  shelfItem: {fileID: 0}
+  itemIndicatorZOffset: 2

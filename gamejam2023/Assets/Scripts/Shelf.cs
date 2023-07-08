@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int Stock = 100000;
+
+    public Item shelfItem;
+
+    private Collider shelfCollider;
+
     void Start()
     {
-        
+        shelfCollider =  this.GetComponent<Collider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddItem(Item item)
     {
-        
+        shelfItem  = item;
     }
 }

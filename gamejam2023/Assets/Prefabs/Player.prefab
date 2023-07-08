@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe09bfe3dd56868d3aee1d187c1c589b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right: {x: 0.1, y: 0, z: 0}
   up: {x: 0, y: 0, z: 0.1}
-  camVector: {x: 0, y: 10, z: -10}
+  camVector: {x: 0, y: 3, z: -3}
 --- !u!143 &6029744828256773507
 CharacterController:
   m_ObjectHideFlags: 0

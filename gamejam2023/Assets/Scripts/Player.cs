@@ -29,19 +29,19 @@ public class Player : MonoBehaviour
         Vector3 motion = new Vector3();
         if (Input.GetKey(KeyCode.W))
         {
-            motion += this.up;
+            motion += this.up * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            motion -= this.right;
+            motion -= this.right * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            motion -= this.up;
+            motion -= this.up * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            motion += this.right;
+            motion += this.right * Time.deltaTime;
         }
 
         if (_controller != null)

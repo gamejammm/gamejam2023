@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogStart: 1
+  m_LinearFogEnd: 10
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 73c07badf5cbcc54db4846b34bd8a2b9, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -173,7 +173,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &310388792
 MonoBehaviour:
@@ -236,7 +236,7 @@ MonoBehaviour:
   WallSide: {fileID: 7667628295263418075, guid: 2e14435f6716f9944aa066bc617ec069, type: 3}
   WallEdgeInside: {fileID: 7034364723182174117, guid: f1bd4cca9439a304ebfc57c2c09ff54d, type: 3}
   WallEdgeOutside: {fileID: 1543275370524634286, guid: 82858faa0b9eecc4eb264377b6d06ad4, type: 3}
-  FloorTile: {fileID: 6584377139542612697, guid: 63a751e14e3f0c942a438a088111db5e, type: 3}
+  FloorTile: {fileID: 6886636095444733253, guid: 4990395c0476f0c478d7109f032ce40b, type: 3}
   DepositMachine: {fileID: 8159038513502288977, guid: a0c039f9917160d40bc846906eff4cc4, type: 3}
 --- !u!82 &310388795
 AudioSource:
@@ -387,14 +387,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409121665}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.061135706, z: 0, w: 0.9981295}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 593808589}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -7.01, z: 0}
 --- !u!95 &409121667
 Animator:
   serializedVersion: 5
@@ -478,7 +478,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -529,8 +541,12 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+      propertyPath: camVector.x
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: camVector.y
-      value: 5
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 2217134861363789719, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       propertyPath: camVector.z
@@ -552,6 +568,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2672918892471463660, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1607872597}
     - targetCorrespondingSourceObject: {fileID: 1642453553871025905, guid: b1b00b51669b74721a8cbf4d0c5d86dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 920331659}
@@ -601,7 +620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920331658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.8, z: 0}
+  m_LocalPosition: {x: 0, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -620,13 +639,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 6.2
-  m_Range: 21.26
+  m_Intensity: 11.15
+  m_Range: 8.71
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -706,7 +725,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.745283, g: 0.6873045, b: 0.5589622, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -729,7 +748,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 36.5
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -754,11 +773,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607872594}
-  m_LocalRotation: {x: 0.43251857, y: 0.16892888, z: -0.08286126, w: 0.88177365}
-  m_LocalPosition: {x: 0, y: 9.74, z: -10}
+  m_LocalRotation: {x: -0.017465765, y: -0.95653, z: 0.28515404, w: -0.058587722}
+  m_LocalPosition: {x: -0.49, y: 2.53, z: 3.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44.79, y: 1.36, z: 0}
+  m_Father: {fileID: 593808589}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 146.8, y: -7.01, z: 180}

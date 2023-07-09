@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_floor_a_mat
+    second: {fileID: 2100000, guid: ffa71a7ef80fa9d4680bcd80f8568318, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: room_floor_a_COLOR

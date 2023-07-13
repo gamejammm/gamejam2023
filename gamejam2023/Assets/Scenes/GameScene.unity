@@ -640,7 +640,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 17.5
+  m_Intensity: 16.88
   m_Range: 10.3
   m_SpotAngle: 50.22
   m_InnerSpotAngle: 21.80208
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 1437782093}
   - component: {fileID: 1437782092}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: FakeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 1933993928}
   - component: {fileID: 1933993929}
   m_Layer: 0
-  m_Name: Pink LIght
+  m_Name: BlueLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,10 +1038,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.77155, g: 0.39630044, b: 0.70700246, a: 1}
+  m_Color: {r: 0.41781586, g: 0.51218677, b: 0.7286639, a: 1}
   m_Intensity: 4.12
   m_Range: 10.3
-  m_SpotAngle: 67.90641
+  m_SpotAngle: 76.393295
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:

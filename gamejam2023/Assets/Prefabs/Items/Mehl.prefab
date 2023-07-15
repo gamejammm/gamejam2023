@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4758634432878490379}
   - component: {fileID: 2338477938988247479}
   - component: {fileID: 7743670062682205446}
+  - component: {fileID: 5382962608415630746}
   m_Layer: 0
   m_Name: Mehl
   m_TagString: Untagged
@@ -70,6 +71,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5382962608415630746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631775534938775266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4301d35fdea11e14da48bd89f1ef06e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6502067328630272533
 PrefabInstance:
   m_ObjectHideFlags: 0

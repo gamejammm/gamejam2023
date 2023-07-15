@@ -21,14 +21,12 @@ public class Item : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-        LookAtCamera();
         itemCollider = this.GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        LookAtCamera();
     }
 
     public float GetTotalPrice() {
@@ -37,13 +35,5 @@ public class Item : MonoBehaviour
 
     public void SetDiscount(float discount) {
         this.discount = discount;
-    }
-
-    protected void LookAtCamera()
-    {
-        Vector3 position = transform.position;
-        Vector3 lookat = position + -_camera.transform.forward;
-        transform.LookAt(lookat);
-
     }
 }

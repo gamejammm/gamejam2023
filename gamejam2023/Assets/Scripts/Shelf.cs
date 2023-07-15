@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,7 @@ public class Shelf : MonoBehaviour
 {
     public int Stock = 100000;
 
-    #nullable enable
-    public Item? shelfItem = null;
-    #nullable disable
+    public Item shelfItem;
 
     public int itemIndicatorZOffset;
 
@@ -17,7 +16,6 @@ public class Shelf : MonoBehaviour
 
     void Start()
     {
-        shelfItem = null;
         shelfCollider = this.GetComponent<Collider>();
     }
 
@@ -29,5 +27,6 @@ public class Shelf : MonoBehaviour
 
         item.transform.position = transform.position + Vector3.up * itemIndicatorZOffset;        
         shelfItem = item;
+        item.transform.SetParent(this.transform);
     }
 }

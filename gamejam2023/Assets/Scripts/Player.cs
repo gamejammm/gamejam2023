@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     public float lookilook = 90f;
 
     public int LitterCount;
+
+    private Inventory _inventory;
     
     
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     {
         _camera = Camera.main;
         playerUI = FindObjectOfType<PlayerUI>();
+        _inventory = FindObjectOfType<Inventory>();
         _controller = GetComponent<CharacterController>();
         _visual = this.transform.GetChild(0);
         _SetPlayer();
@@ -82,11 +86,42 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag =="Litter")
+        if (other.gameObject.transform.parent.tag == "Bottle" || other.gameObject.transform.parent.tag == "Shelf")
         {
-            LitterCount++;
-            Destroy(other.gameObject.transform.parent.gameObject);
-            playerUI.SetLitterValue(LitterCount);
+            //LitterCount++;
+            // playerUI.SetLitterValue(LitterCount);
+
+            Item item;
+            if (other.gameObject.transform.parent.tag == "Shelf")
+            {
+                Shelf shelf  = other.gameObject.transform.parent.GetComponent<Shelf>();
+                if(shelf ==null) {
+                    Debug.LogError("shelf does not have shelf Component");
+                    return;
+                }
+                item = shelf.shelfItem;
+                if(item!=null)
+                {
+                    _inventory.NewItemCollected(item);
+                }
+            }
+
+            else if(other.gameObject.transform.parent.tag == "Bottle")
+            {
+                item = other.gameObject.transform.parent.GetComponent<Item>();
+                //if (item == null)
+                //{
+                //    item = other.gameObject.GetComponent<Item>();
+                //}
+                if (item == null)
+                {
+                    Debug.LogError("Item does not have Item class attached");
+                    return;
+                }
+                _inventory.NewItemCollected(item);
+                item.gameObject.SetActive(false);
+
+            }
         }
     }
 }

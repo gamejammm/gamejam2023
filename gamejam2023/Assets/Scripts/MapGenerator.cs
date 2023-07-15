@@ -14,6 +14,11 @@ public class MapGenerator : MonoBehaviour
 
     private AssetLoader assetLoader;
 
+    public GameObject ShelfContainer;
+
+    public GameObject EnvironmentContainer;
+
+
     // string format: top-right-bottom-left
     private Dictionary<string, (GameObject, int)> wallPrefabByNeighborhood;
     // Start is called before the first frame update
@@ -83,6 +88,12 @@ public class MapGenerator : MonoBehaviour
                     }
 
                     shelfPlan[coords2d] = shelf;
+                    o.transform.SetParent(ShelfContainer.transform);
+                }
+                else
+                {
+                    o.transform.SetParent(EnvironmentContainer.transform);
+
                 }
             }
         }

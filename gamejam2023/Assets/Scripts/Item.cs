@@ -9,11 +9,15 @@ public class Item : MonoBehaviour
 
     public string Name;
 
+    public Sprite itemSprite;
+
     public Collider itemCollider;
 
     private float discount = 0;
 
     private Camera _camera;
+
+    public ItemType ItemType;
 
     
     
@@ -36,4 +40,11 @@ public class Item : MonoBehaviour
     public void SetDiscount(float discount) {
         this.discount = discount;
     }
+}
+
+public enum ItemType
+{
+    Wallet,
+    Bottle,
+    Grocery
 }

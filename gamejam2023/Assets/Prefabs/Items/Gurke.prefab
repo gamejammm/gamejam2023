@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6672557165073541074}
   - component: {fileID: 8867068235548655405}
-  - component: {fileID: 9178510514566783999}
   - component: {fileID: -2134232450398607223}
   m_Layer: 0
   m_Name: Gurke
-  m_TagString: Untagged
+  m_TagString: Grocery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,30 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52060f748b9bb2b42a9c8e0e2ea30513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Price: 2
-  Name: Onion
-  itemCollider: {fileID: 9178510514566783999}
---- !u!65 &9178510514566783999
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499702246237333462}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  Price: 3
+  Name: Gurke
+  itemSprite: {fileID: 21300000, guid: 70a439354f7437441b44bb173d0be08a, type: 3}
+  itemCollider: {fileID: 0}
+  ItemType: 2
 --- !u!114 &-2134232450398607223
 MonoBehaviour:
   m_ObjectHideFlags: 0

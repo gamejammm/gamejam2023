@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3518387361192974605}
   - component: {fileID: 919590689002312534}
-  - component: {fileID: 5688800622181288033}
   - component: {fileID: -610046922600685811}
   m_Layer: 0
   m_Name: Fuss
-  m_TagString: Untagged
+  m_TagString: Grocery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,29 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 2
-  Name: Onion
-  itemCollider: {fileID: 5688800622181288033}
---- !u!65 &5688800622181288033
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561740100354198897}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  Name: Fuss
+  itemSprite: {fileID: 21300000, guid: f566f12c37c6c844da57b977bfde9f4f, type: 3}
+  itemCollider: {fileID: 0}
+  ItemType: 2
 --- !u!114 &-610046922600685811
 MonoBehaviour:
   m_ObjectHideFlags: 0

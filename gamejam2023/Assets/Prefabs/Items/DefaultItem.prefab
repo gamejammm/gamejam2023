@@ -153,7 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Price: 1
   Name: Default
+  itemSprite: {fileID: 21300000, guid: 3a14d9ce25662c3439d3cceafc134970, type: 3}
   itemCollider: {fileID: 0}
+  ItemType: 2
 --- !u!114 &6696913814371167337
 MonoBehaviour:
   m_ObjectHideFlags: 0

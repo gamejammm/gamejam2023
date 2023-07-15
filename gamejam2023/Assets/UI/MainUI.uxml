@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="PlayerUI" src="project://database/Assets/UI/PlayerUI.uxml?fileID=9197481963319205126&amp;guid=7205daccca6b37e4fa2edeeba2d802a6&amp;type=3#PlayerUI" />
+    <ui:Template name="PlayerUI" src="project://database/Assets/UI/StatusUI.uxml?fileID=9197481963319205126&amp;guid=7205daccca6b37e4fa2edeeba2d802a6&amp;type=3#StatusUI" />
     <ui:Template name="InventoryUI" src="project://database/Assets/UI/InventoryUI.uxml?fileID=9197481963319205126&amp;guid=c92fb041858a0e94ea2d530a16caa01d&amp;type=3#InventoryUI" />
-    <ui:Instance template="PlayerUI" name="PlayerUI" style="display: none;" />
+    <ui:Instance template="PlayerUI" name="StatusUI" style="display: flex;" />
     <ui:Instance template="InventoryUI" name="InventoryUI" style="-unity-text-align: lower-left; height: 91px; transform-origin: bottom; translate: 0 0; position: absolute; bottom: 0; width: 100%;" />
 </ui:UXML>

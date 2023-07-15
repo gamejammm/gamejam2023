@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerUI : MonoBehaviour
+public class StatusUI : MonoBehaviour
 {
     [SerializeField]
     private UIDocument m_UIDocument;
 
-    private Label _litterCountDisplay;
+    private Label _monetasDisplay;
 
 
     // Start is called before the first frame update
     void Start()
     {
         var rootElement = m_UIDocument.rootVisualElement;
-        _litterCountDisplay = rootElement.Q<Label>("BottleCountLabel");
+        _monetasDisplay = rootElement.Q<Label>("MonetasValue");
     }
 
-    public void SetLitterValue(int litterCount)
+    public void SetMonetasValue(float monetasValue)
     {
-        _litterCountDisplay.text = litterCount.ToString();
+        _monetasDisplay.text = monetasValue.ToString();
     }
 }

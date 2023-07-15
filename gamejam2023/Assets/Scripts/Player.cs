@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
     public GameObject visualFront;
     public GameObject visualBack;
 
-    private PlayerUI playerUI;
-
     private CharacterController _controller;
     private Camera _camera;
     private Transform _visual;
@@ -22,15 +20,14 @@ public class Player : MonoBehaviour
 
     public int LitterCount;
 
-    private Inventory _inventory;
+    private GameManager _gameManager;
     
     
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
-        playerUI = FindObjectOfType<PlayerUI>();
-        _inventory = FindObjectOfType<Inventory>();
+        _gameManager = FindObjectOfType<GameManager>();
         _controller = GetComponent<CharacterController>();
         _visual = this.transform.GetChild(0);
         _SetPlayer();
@@ -102,7 +99,7 @@ public class Player : MonoBehaviour
                 item = shelf.shelfItem;
                 if(item!=null)
                 {
-                    _inventory.NewItemCollected(item);
+                    _gameManager.ItemCollected(item);
                 }
             }
 
@@ -118,8 +115,9 @@ public class Player : MonoBehaviour
                     Debug.LogError("Item does not have Item class attached");
                     return;
                 }
-                _inventory.NewItemCollected(item);
-                item.gameObject.SetActive(false);
+                bool isItemCollected = _gameManager.ItemCollected(item);
+                if(isItemCollected)
+                    item.gameObject.SetActive(false);
 
             }
         }

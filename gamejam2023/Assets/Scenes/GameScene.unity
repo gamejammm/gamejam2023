@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopPlayer: {fileID: 593808587}
+  StartMoney: 10
 --- !u!114 &310388797
 MonoBehaviour:
   m_ObjectHideFlags: 0

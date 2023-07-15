@@ -181,8 +181,8 @@ public class MapGenerator : MonoBehaviour
     private void StockShelf(Shelf shelf) {
         var items = assetLoader.Items;
         int index = Random.Range(0, items.Count);
-        Debug.LogError(index);
-        Debug.LogError("ITEMS COUNT: " + items.Count);
+        //Debug.LogError(index);
+        //Debug.LogError("ITEMS COUNT: " + items.Count);
 
         Item item = Instantiate(items[index]).GetComponent<Item>();
         

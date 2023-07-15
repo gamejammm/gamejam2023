@@ -11,20 +11,26 @@ public class Player : MonoBehaviour
     public GameObject visualFront;
     public GameObject visualBack;
 
+    private PlayerUI playerUI;
+
     private CharacterController _controller;
     private Camera _camera;
     private Transform _visual;
 
     public float lookilook = 90f;
+
+    public int LitterCount;
     
     
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
+        playerUI = FindObjectOfType<PlayerUI>();
         _controller = GetComponent<CharacterController>();
         _visual = this.transform.GetChild(0);
         _SetPlayer();
+        LitterCount = 0;
     }
 
     // Update is called once per frame
@@ -72,5 +78,15 @@ public class Player : MonoBehaviour
     protected void _SetPlayer()
     {
         this.gameObject.transform.position = new Vector3(this.transform.position.x, 0.37f, this.transform.position.z);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag =="Litter")
+        {
+            LitterCount++;
+            Destroy(other.gameObject.transform.parent.gameObject);
+            playerUI.SetLitterValue(LitterCount);
+        }
     }
 }

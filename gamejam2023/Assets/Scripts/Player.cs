@@ -85,25 +85,23 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.transform.parent.tag == "Bottle" || other.gameObject.transform.parent.tag == "Shelf")
         {
-            //LitterCount++;
-            // playerUI.SetLitterValue(LitterCount);
-
             Item item;
             if (other.gameObject.transform.parent.tag == "Shelf")
             {
-                Shelf shelf  = other.gameObject.transform.parent.GetComponent<Shelf>();
-                if(shelf ==null) {
+                Shelf shelf = other.gameObject.transform.parent.GetComponent<Shelf>();
+                if (shelf == null)
+                {
                     Debug.LogError("shelf does not have shelf Component");
                     return;
                 }
                 item = shelf.shelfItem;
-                if(item!=null)
+                if (item != null)
                 {
                     _gameManager.ItemCollected(item);
                 }
             }
 
-            else if(other.gameObject.transform.parent.tag == "Bottle")
+            else if (other.gameObject.transform.parent.tag == "Bottle")
             {
                 item = other.gameObject.transform.parent.GetComponent<Item>();
                 //if (item == null)
@@ -116,10 +114,15 @@ public class Player : MonoBehaviour
                     return;
                 }
                 bool isItemCollected = _gameManager.ItemCollected(item);
-                if(isItemCollected)
+                if (isItemCollected)
                     item.gameObject.SetActive(false);
 
             }
+        }
+
+        else if (other.gameObject.transform.parent.tag == "BottleDeposit")
+        {
+            _gameManager.DropAllBottles();
         }
     }
 }

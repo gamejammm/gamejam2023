@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     private StatusUI statusUI;
 
+    public bool IsBottlesDropping;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,18 +49,43 @@ public class GameManager : MonoBehaviour
 
     public bool ItemCollected(Item item)
     {
-        if(SetMonetas(item.Price))
+        if(inventory.IsInventoryFull())
         {
-            inventory.NewItemCollected(item);
-            statusUI.SetMonetasValue(currentMonetas);
-            return true;
-        }
-        else
-        {
-            Debug.LogError("Item is Too expensive");
             return false;
         }
 
+        if(item.ItemType != ItemType.Bottle)
+        {
+            if(SetMonetas(item.Price))
+            {
+                inventory.NewItemCollected(item);
+                return true;
+            }
+            else
+            {
+                Debug.LogError("Item is Too expensive");
+                return false;
+            }
+        }
+        else
+        {
+            inventory.NewItemCollected(item);
+        }
+        return true;
+    }
+
+    public void DropAllBottles()
+    {
+        if(IsBottlesDropping) 
+        {
+            return;
+        }
+        Debug.LogError("Drop All Bottles");
+        IsBottlesDropping = true;
+        float monetasToGet = inventory.DropAllBottlesAndGetReturnCost();
+        SetMonetas(monetasToGet);
+        Debug.LogError("Money to Pay: +"+ monetasToGet);
+        IsBottlesDropping = false;
     }
 
     //private void ItemPayedOut(Item item)
@@ -81,6 +108,7 @@ public class GameManager : MonoBehaviour
         if (priceToPay > currentMonetas)
         {
             Debug.LogError("Not enough Money");
+            statusUI.SetMonetasValue(currentMonetas);
             return false;
         }
 
@@ -88,6 +116,7 @@ public class GameManager : MonoBehaviour
         {
             currentMonetas -= priceToPay;  
         }
+        statusUI.SetMonetasValue(currentMonetas);
         return true;
     }
 }

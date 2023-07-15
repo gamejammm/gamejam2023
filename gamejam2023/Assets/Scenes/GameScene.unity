@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2321ff906a16ec74687f023aab8916e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownInS: 10
+  cooldownInS: 2
   litterZ: 0.3
   litterPrefab: {fileID: 951404019416683986, guid: b752c4b648f577540a427243a7744b80, type: 3}
 --- !u!114 &310388798

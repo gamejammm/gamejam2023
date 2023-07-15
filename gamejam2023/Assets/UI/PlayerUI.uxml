@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 220px; flex-direction: row;">
-        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="Bottle" style="width: 64px; height: 64px; background-color: rgba(55, 55, 55, 0); background-image: resource(&apos;Items/Textures/Inv-Pfandflasche_weiss&apos;);" />
-        <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="BottleCountLabel" style="width: 64px; height: 64px; font-size: 40px;" />
+        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="Bottle" style="width: 64px; height: 64px; background-color: rgba(55, 55, 55, 0); background-image: resource(&apos;Objects/Items/Textures/Inv-Pfandflasche_weiss&apos;);" />
+        <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="BottleCountLabel" style="width: 64px; height: 64px; font-size: 40px; color: rgb(255, 0, 150);" />
     </ui:VisualElement>
 </ui:UXML>

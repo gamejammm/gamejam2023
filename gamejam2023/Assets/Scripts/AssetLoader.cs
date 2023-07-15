@@ -28,7 +28,7 @@ public class AssetLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PathToItemsFolder = Application.dataPath + "/Resources/Items";
+        PathToItemsFolder = Application.dataPath + "/Resources/Objects/Items";
         LoadItems();
     }
 
@@ -55,7 +55,7 @@ public class AssetLoader : MonoBehaviour
             string ttt = Path.GetFileNameWithoutExtension(itemName);
 
             // Debug.LogError(ttt);
-            GameObject itemObject = Resources.Load("Items/" + ttt, typeof(GameObject)) as GameObject;
+            GameObject itemObject = Resources.Load("Props/" + ttt, typeof(GameObject)) as GameObject;
             if(itemObject != null)
             {
                 Items.Add(itemObject);

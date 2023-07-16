@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class AssetLoader : MonoBehaviour
@@ -41,7 +42,7 @@ public class AssetLoader : MonoBehaviour
     public void LoadItems()
     {
         //Getting all Files in Folder
-        Items = new List<GameObject>();
+       // Items = new List<GameObject>();
 
 
         //Debug.LogError(PathToItemsFolder);
@@ -58,9 +59,30 @@ public class AssetLoader : MonoBehaviour
             GameObject itemObject = Resources.Load("Props/" + ttt, typeof(GameObject)) as GameObject;
             if(itemObject != null)
             {
-                Items.Add(itemObject);
+               // Items.Add(itemObject);
                 Instantiate(itemObject);
             }
+        }
+    }
+
+    public Item GetGroceryItem(GroceryType groceryType)
+    {
+        /// Reihenfolge/Index beachten
+
+        Item item;
+        switch (groceryType)
+        {
+            case GroceryType.Cucumber:
+                item = Items[2].GetComponent<Item>();
+                return item;
+            case GroceryType.Strawberry:
+                item = Items[1].GetComponent<Item>();
+                return item;
+            case GroceryType.Foot:
+                item = Items[0].GetComponent<Item>();
+                return item;
+                default: return null;
+
         }
     }
 }

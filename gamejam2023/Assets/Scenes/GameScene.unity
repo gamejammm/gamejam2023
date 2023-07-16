@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 310388796}
   - component: {fileID: 310388797}
   - component: {fileID: 310388798}
+  - component: {fileID: 310388799}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -353,6 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopPlayer: {fileID: 593808587}
   StartMoney: 10
+  AssetLoader: {fileID: 0}
+  IsBottlesDropping: 0
 --- !u!114 &310388797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +385,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventorySize: 6
   defaultSlotSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &310388799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310388789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dac71f79289fcc4e928747191cae079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeCreationInSec: 5
 --- !u!1001 &463890227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -583,6 +599,7 @@ GameObject:
   - component: {fileID: 1684439668}
   - component: {fileID: 1684439670}
   - component: {fileID: 1684439671}
+  - component: {fileID: 1684439672}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -644,6 +661,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ede8051ec7d45f4f98e8bfb46d75b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIDocument: {fileID: 1684439668}
+--- !u!114 &1684439672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684439667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2950241b7aa7fa9418622bdca8eb79ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIDocument: {fileID: 1684439668}

@@ -48,3 +48,10 @@ public enum ItemType
     Bottle,
     Grocery
 }
+
+public enum GroceryType
+{
+    Strawberry,
+    Foot,
+    Cucumber
+}

@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     private StatusUI statusUI;
 
+    public AssetLoader AssetLoader;
+
     public bool IsBottlesDropping;
 
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         inventory = this.GetComponent<Inventory>();
         ShopMap = this.GetComponent<Map>();
+        AssetLoader = this.GetComponent<AssetLoader>();
         statusUI  =FindObjectOfType<StatusUI>();
 
         if (ShopMap.initialized == true) 
@@ -88,14 +91,11 @@ public class GameManager : MonoBehaviour
         IsBottlesDropping = false;
     }
 
-    //private void ItemPayedOut(Item item)
-    //{
-    //    if (SetMonetas(-item.Price))
-    //    {
-    //        inventory.DropItem(item);
-    //        return true;
-    //    }
-    //}
+
+    public void CreateRecipe(List<Item> recipe)
+    {
+
+    }
 
     private void SetPlayer()
     {

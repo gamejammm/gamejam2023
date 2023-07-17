@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -13,6 +14,8 @@ namespace DefaultNamespace
 
         private InventoryUI _inventoryUI;
 
+        private GameManager gameManager;
+
         /// <summary>
         /// index, Item
         /// </summary>
@@ -23,6 +26,7 @@ namespace DefaultNamespace
         {
             _inventoryUI = FindObjectOfType<InventoryUI>();
             _inventoryUI.InitInventory(InventorySize, defaultSlotSprite);
+            this.gameManager = GetComponent<GameManager>();
             inventoryItems = new Dictionary<int, Item>();
             //for(int i=0;i<InventorySize;i++)
             //{
@@ -115,6 +119,53 @@ namespace DefaultNamespace
             }
 
             return -1;
+        }
+
+
+        public Dictionary<int,GroceryItem> GetAllInventoryGroceries()
+        {
+            var allGroceries = inventoryItems.Where(x => x.Value.ItemType == ItemType.Grocery);
+            Dictionary<int, GroceryItem> allGroceriesItems = new Dictionary<int, GroceryItem>();
+            foreach (var itemPair in allGroceries)
+            {
+                allGroceriesItems.Add(itemPair.Key, (GroceryItem)itemPair.Value);
+            }
+            return allGroceriesItems;
+        }
+
+        public List<int> GetAllgroceriesOfReceipeType(RecipeType receipeType)
+        {
+            List<GroceryType> groceries = gameManager.recipeManager.GetGroceryList(receipeType);
+
+           // Dictionary<int, GroceryItem> groceriesToGet = new Dictionary<int, GroceryItem>();
+            Dictionary<int, GroceryItem> allGroceries = GetAllInventoryGroceries();
+            List<int> groceryIndex = new List<int>();
+
+
+            foreach (GroceryType gType in groceries)
+            {
+                var groceryIndexPair = allGroceries.FirstOrDefault(x => x.Value.GroceryType == gType);
+                if(groceryIndexPair.Value == null)
+                {
+                    //already failed cause this grocery is missing
+                    return null;
+                }
+                else
+                {
+                    groceryIndex.Add(groceryIndexPair.Key);
+                }
+            }
+
+            return groceryIndex;
+        }
+
+        public void DropRecipe(List<int> groceriesToRemoveAtIndex)
+        {
+            foreach(int index in groceriesToRemoveAtIndex) 
+            {
+                inventoryItems.Remove(index);
+                _inventoryUI.ResetInventarySlot(index);
+            }
         }
     }
 }

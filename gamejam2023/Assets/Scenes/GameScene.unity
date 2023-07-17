@@ -244,6 +244,7 @@ MonoBehaviour:
   WallEdgeOutside: {fileID: 1543275370524634286, guid: 82858faa0b9eecc4eb264377b6d06ad4, type: 3}
   FloorTile: {fileID: 6886636095444733253, guid: 4990395c0476f0c478d7109f032ce40b, type: 3}
   DepositMachine: {fileID: 6570562692140598128, guid: 7c9a70a5fcece5548b8a58f46766bdbf, type: 3}
+  DragonHead: {fileID: 2985859240646551439, guid: 96c1a8f77d5081b4b9724c612f7b8bce, type: 3}
 --- !u!82 &310388795
 AudioSource:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopPlayer: {fileID: 593808587}
   StartMoney: 10
+  recipeManager: {fileID: 0}
   AssetLoader: {fileID: 0}
   IsBottlesDropping: 0
 --- !u!114 &310388797
@@ -397,7 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dac71f79289fcc4e928747191cae079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeCreationInSec: 5
+  recipeCreationInSec: 15
+  CurrentRecipes: 
 --- !u!1001 &463890227
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class RecipeCard : VisualElement
     Label RecipeNameLabel;
     VisualElement GroceryStack;
 
-    public RecipeCard(List<Item> ingredients, int ingedientSize, string recipeName)
+    public RecipeCard(Recipe ingredients, int ingedientSize, string recipeName)
     {
         GroceryStack = new VisualElement();
         this.Add(GroceryStack);
@@ -18,7 +18,7 @@ public class RecipeCard : VisualElement
         RecipeNameLabel = new Label(recipeName);
         this.Add(RecipeNameLabel);
         GroceryStack.style.flexDirection = FlexDirection.Row;
-        foreach(Item ingedient in ingredients) 
+        foreach(GroceryItem ingedient in ingredients.GroceryItems) 
         {
             GroceryStack.Add(CreateIngerdientCard(ingedient, ingedientSize));
         }

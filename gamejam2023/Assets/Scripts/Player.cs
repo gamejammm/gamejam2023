@@ -120,6 +120,12 @@ public class Player : MonoBehaviour
             }
         }
 
+        else if (other.gameObject.transform.parent.tag == "DragonHead")
+        {
+            //Check if inventory has a receipe;
+            _gameManager.DropReceipe();
+        }
+
         else if (other.gameObject.transform.parent.tag == "BottleDeposit")
         {
             _gameManager.DropAllBottles();

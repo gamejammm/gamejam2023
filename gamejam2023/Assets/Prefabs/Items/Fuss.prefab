@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3518387361192974605}
-  - component: {fileID: 919590689002312534}
   - component: {fileID: -610046922600685811}
+  - component: {fileID: 7037397525413668199}
   m_Layer: 0
   m_Name: Fuss
   m_TagString: Grocery
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &919590689002312534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561740100354198897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52060f748b9bb2b42a9c8e0e2ea30513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Price: 2
-  Name: Fuss
-  itemSprite: {fileID: 21300000, guid: f566f12c37c6c844da57b977bfde9f4f, type: 3}
-  itemCollider: {fileID: 0}
-  ItemType: 2
 --- !u!114 &-610046922600685811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4301d35fdea11e14da48bd89f1ef06e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7037397525413668199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561740100354198897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bda6590388aae64591e9af5865f9b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Price: 5
+  Name: Fuss
+  itemSprite: {fileID: 21300000, guid: f566f12c37c6c844da57b977bfde9f4f, type: 3}
+  itemCollider: {fileID: 0}
+  ItemType: 2
+  GroceryType: 1
 --- !u!1001 &7033639942171924746
 PrefabInstance:
   m_ObjectHideFlags: 0

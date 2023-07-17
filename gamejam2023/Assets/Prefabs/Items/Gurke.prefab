@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6672557165073541074}
-  - component: {fileID: 8867068235548655405}
   - component: {fileID: -2134232450398607223}
+  - component: {fileID: 8383877133188740129}
   m_Layer: 0
   m_Name: Gurke
   m_TagString: Grocery
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8867068235548655405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499702246237333462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52060f748b9bb2b42a9c8e0e2ea30513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Price: 3
-  Name: Gurke
-  itemSprite: {fileID: 21300000, guid: 70a439354f7437441b44bb173d0be08a, type: 3}
-  itemCollider: {fileID: 0}
-  ItemType: 2
 --- !u!114 &-2134232450398607223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4301d35fdea11e14da48bd89f1ef06e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8383877133188740129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499702246237333462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bda6590388aae64591e9af5865f9b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Price: 3
+  Name: Gurke
+  itemSprite: {fileID: 21300000, guid: 70a439354f7437441b44bb173d0be08a, type: 3}
+  itemCollider: {fileID: 0}
+  ItemType: 2
+  GroceryType: 2
 --- !u!1001 &3197862226191178002
 PrefabInstance:
   m_ObjectHideFlags: 0

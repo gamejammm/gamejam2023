@@ -38,6 +38,7 @@ public class MapGenerator : MonoBehaviour
         };
 
         GenerateMap(mapSize.x, mapSize.y);
+        PlaceDragonHead(EnvironmentContainer.transform.GetChild(5).gameObject);
     }
 
     void GenerateMap(int width, int height) 
@@ -184,7 +185,6 @@ public class MapGenerator : MonoBehaviour
         } else {
             nString += "0";
         }
-
         return nString;
     }
 
@@ -198,5 +198,11 @@ public class MapGenerator : MonoBehaviour
         Item item = Instantiate(items[index]).GetComponent<Item>();
         
         shelf.SetItem(item);
+    }
+
+    private void PlaceDragonHead(GameObject floortile)
+    {
+        GameObject dragonHead = Instantiate(assetLoader.DragonHead);
+        dragonHead.transform.position= floortile.transform.position;
     }
 }

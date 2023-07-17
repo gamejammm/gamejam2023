@@ -23,6 +23,8 @@ public class AssetLoader : MonoBehaviour
 
     public GameObject DepositMachine;
 
+    public GameObject DragonHead;
+
 
     private string PathToItemsFolder;
 
@@ -65,24 +67,27 @@ public class AssetLoader : MonoBehaviour
         }
     }
 
-    public Item GetGroceryItem(GroceryType groceryType)
+    public GroceryItem GetGroceryItem(GroceryType groceryType)
     {
         /// Reihenfolge/Index beachten
 
-        Item item;
-        switch (groceryType)
-        {
-            case GroceryType.Cucumber:
-                item = Items[2].GetComponent<Item>();
-                return item;
-            case GroceryType.Strawberry:
-                item = Items[1].GetComponent<Item>();
-                return item;
-            case GroceryType.Foot:
-                item = Items[0].GetComponent<Item>();
-                return item;
-                default: return null;
+        GroceryItem item;
 
+        foreach(GameObject grocery in Items)
+        {
+            item = grocery.GetComponent<GroceryItem>();
+
+            if(item== null)
+            {
+                Debug.LogError("This hast to be an Grocery Item: " + grocery.name);
+                continue;
+            }
+            if(item.GroceryType == groceryType)
+            {
+                return item;
+            }
         }
+        return null;
+
     }
 }

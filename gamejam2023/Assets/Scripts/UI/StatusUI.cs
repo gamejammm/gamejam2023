@@ -12,7 +12,7 @@ public class StatusUI : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         var rootElement = m_UIDocument.rootVisualElement;
         _monetasDisplay = rootElement.Q<Label>("MonetasValue");

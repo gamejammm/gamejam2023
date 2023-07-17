@@ -14,6 +14,8 @@ public class Shelf : MonoBehaviour
 
     private Collider shelfCollider;
 
+    public Transform ItemSpawnPosition;
+
     void Start()
     {
         shelfCollider = this.GetComponent<Collider>();
@@ -24,9 +26,9 @@ public class Shelf : MonoBehaviour
         if (shelfItem != null) {
             Destroy(shelfItem);
         }
-
-        item.transform.position = transform.position + Vector3.up * itemIndicatorZOffset;        
+        item.transform.position = ItemSpawnPosition.position;
+        //item.transform.position = transform.position + Vector3.up * itemIndicatorZOffset;        
         shelfItem = item;
-        item.transform.SetParent(this.transform);
+        item.transform.SetParent(ItemSpawnPosition.transform);
     }
 }

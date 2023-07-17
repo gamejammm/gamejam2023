@@ -9,6 +9,7 @@ TagManager:
   - Shelf
   - BottleDeposit
   - DragonHead
+  - ItemPosition
   layers:
   - Default
   - TransparentFX

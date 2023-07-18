@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public RecipeManager recipeManager;
 
+    //Managing already existing maps
+    public MapManager mapManager;
+
     private StatusUI statusUI;
 
     public AssetLoader AssetLoader;
@@ -26,24 +29,36 @@ public class GameManager : MonoBehaviour
 
     private bool isRecipeDropping;
 
+    public bool GenerateMap = false;
 
-    // Start is called before the first frame update
-    void Start()
+    //Default Map
+
+    public Transform PlayerStartPos;
+
+    private void OnEnable()
     {
         inventory = this.GetComponent<Inventory>();
         recipeManager = this.GetComponent<RecipeManager>();
         ShopMap = this.GetComponent<Map>();
         AssetLoader = this.GetComponent<AssetLoader>();
         statusUI = FindObjectOfType<StatusUI>();
+        mapManager = GetComponent<MapManager>();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
 
-        if (ShopMap.initialized == true)
+        if(GenerateMap)
         {
-            SetPlayer();
-        }
+            if (ShopMap.initialized == true)
+            {
+                SetPlayer();
+            }
 
-        else
-        {
-            ShopMap.isInitializationDone.AddListener(SetPlayer);
+            else
+            {
+                ShopMap.isInitializationDone.AddListener(SetPlayer);
+            }
         }
 
         currentMonetas = StartMoney;

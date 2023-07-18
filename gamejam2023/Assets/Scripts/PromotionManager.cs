@@ -19,35 +19,35 @@ public class PromotionManager : MonoBehaviour
     private Map map;
 
     void Start() {
-        map = GetComponent<Map>();
-        currentCooldown = cooldownInS;
-        runningPromotions = new List<Promotion>();
+        //map = GetComponent<Map>();
+        //currentCooldown = cooldownInS;
+        //runningPromotions = new List<Promotion>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var deltaTime = Time.deltaTime;
+        //var deltaTime = Time.deltaTime;
 
-        currentCooldown -= deltaTime;
-        var index = 0;
-        while (index < runningPromotions.Count)
-        {
-            var promo = runningPromotions[index];
-            promo.validUntil -= deltaTime;
-            if (promo.validUntil < 0) {
-                promo.item.SetDiscount(0f);
-                runningPromotions.RemoveAt(index);      
-                print("promotion ended"); 
-            } else {
-                index += 1;
-            }
-        }
+        //currentCooldown -= deltaTime;
+        //var index = 0;
+        //while (index < runningPromotions.Count)
+        //{
+        //    var promo = runningPromotions[index];
+        //    promo.validUntil -= deltaTime;
+        //    if (promo.validUntil < 0) {
+        //        promo.item.SetDiscount(0f);
+        //        runningPromotions.RemoveAt(index);      
+        //        print("promotion ended"); 
+        //    } else {
+        //        index += 1;
+        //    }
+        //}
 
-        if (currentCooldown < 0 && runningPromotions.Count < parallelPromotions) {
-            StartPromotion();
-            currentCooldown = cooldownInS;
-        }
+        //if (currentCooldown < 0 && runningPromotions.Count < parallelPromotions) {
+        //    StartPromotion();
+        //    currentCooldown = cooldownInS;
+        //}
     }
 
     private void StartPromotion() {

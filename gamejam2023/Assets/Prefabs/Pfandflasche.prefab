@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3049616308158144949}
   - component: {fileID: -7332896233317038004}
   - component: {fileID: 34002707523060424}
+  - component: {fileID: 8864512124344208100}
+  - component: {fileID: 2116924893776037790}
   m_Layer: 0
   m_Name: Pfandflasche
   m_TagString: Bottle
@@ -41,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951404019416683986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4301d35fdea11e14da48bd89f1ef06e2, type: 3}
   m_Name: 
@@ -63,6 +65,54 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: ae83edd06720004409bdaa3871c5e854, type: 3}
   itemCollider: {fileID: 0}
   ItemType: 1
+--- !u!54 &8864512124344208100
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951404019416683986}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2116924893776037790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951404019416683986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19176674, y: 0.4604991, z: 0.038233995}
+  m_Center: {x: -0.020691872, y: -0.0067792237, z: -0.011860728}
 --- !u!1001 &1595364109336337064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,5 +222,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.017468102, y: 0.001741551, z: 0.04520717}
-  m_Center: {x: -0.0028113904, y: 0.00087077235, z: -0.00048730534}
+  m_Size: {x: 0.023760414, y: 0.007806299, z: 0.055941988}
+  m_Center: {x: -0.0030190467, y: 0.00040383005, z: -0.0058547175}

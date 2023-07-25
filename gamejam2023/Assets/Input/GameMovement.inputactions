@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "Hold(duration=1.401298E-45)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "CollectItem",
+                    "type": "Button",
+                    "id": "1c39111e-b1cb-4243-af2f-43fe35f68ec9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1cc0e339-8f55-4973-a081-f5380adada08",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "CollectItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

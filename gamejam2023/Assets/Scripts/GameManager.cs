@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public bool ItemCollected(Item item)
+    public bool CollectItem(Item item)
     {
         if (inventory.IsInventoryFull())
         {

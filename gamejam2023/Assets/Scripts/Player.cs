@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     private GameManager _gameManager;
 
+    private Shelf shelfToCollectFrom;
+
     InputAction.CallbackContext gamePadContext;
 
 
@@ -36,6 +38,20 @@ public class Player : MonoBehaviour
     public void OnPlayerMove(InputAction.CallbackContext context)
     {
          gamePadContext = context;
+    }
+
+    public void OnCollectItem()
+    {
+        if(shelfToCollectFrom != null) 
+        {
+            _gameManager.CollectItem(shelfToCollectFrom.shelfItem);
+            shelfToCollectFrom.ActivateShelf(false);
+            shelfToCollectFrom = null;
+        }
+        else
+        {
+            //Debug.LogError("Nothing To Collect");
+        }
     }
 
 
@@ -85,6 +101,11 @@ public class Player : MonoBehaviour
 
         SetMovePlayer(motion);
         this.gameObject.transform.position = new Vector3(this.transform.position.x, PlayerHeight, this.transform.position.z);
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            OnCollectItem();
+        }
 
     }
 
@@ -153,7 +174,8 @@ public class Player : MonoBehaviour
                 item = shelf.shelfItem;
                 if (item != null)
                 {
-                    _gameManager.ItemCollected(item);
+                    shelf.ActivateShelf(true);
+                    shelfToCollectFrom = shelf;
                 }
             }
 
@@ -169,7 +191,7 @@ public class Player : MonoBehaviour
                     Debug.LogError("Item does not have Item class attached");
                     return;
                 }
-                bool isItemCollected = _gameManager.ItemCollected(item);
+                bool isItemCollected = _gameManager.CollectItem(item);
                 if (isItemCollected)
                     item.gameObject.SetActive(false);
 
@@ -187,4 +209,20 @@ public class Player : MonoBehaviour
             _gameManager.DropAllBottles();
         }
     }
-}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.transform.parent.tag == "Shelf")
+        {
+            Shelf shelf = other.gameObject.transform.parent.GetComponent<Shelf>();
+            if (shelf == null)
+            {
+                Debug.LogError("shelf does not have shelf Component");
+                return;
+            }
+            shelf.ActivateShelf(false);
+            shelfToCollectFrom = null;
+        }
+    }
+
+  }

@@ -12,6 +12,8 @@ public class Shelf : MonoBehaviour
 
     public int itemIndicatorZOffset;
 
+    public GameObject shelfActivateObject;
+
     private Collider shelfCollider;
 
     public Transform ItemSpawnPosition;
@@ -30,5 +32,16 @@ public class Shelf : MonoBehaviour
         //item.transform.position = transform.position + Vector3.up * itemIndicatorZOffset;        
         shelfItem = item;
         item.transform.SetParent(ItemSpawnPosition.transform);
+    }
+
+    public void ActivateShelf(bool activate)
+    {
+        shelfActivateObject.SetActive(activate);
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.LogError("ENTE");
     }
 }

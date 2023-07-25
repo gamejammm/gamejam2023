@@ -497,6 +497,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5252189012690526844, guid: 7ea97e2ec2bcbc44b8feb4f9ba82253f, type: 3}
+      propertyPath: StartMoney
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252189012690526844, guid: 7ea97e2ec2bcbc44b8feb4f9ba82253f, type: 3}
       propertyPath: TimeToPlayInSec
       value: 120
       objectReference: {fileID: 0}

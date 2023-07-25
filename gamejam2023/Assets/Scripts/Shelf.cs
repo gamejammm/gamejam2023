@@ -37,11 +37,5 @@ public class Shelf : MonoBehaviour
     public void ActivateShelf(bool activate)
     {
         shelfActivateObject.SetActive(activate);
-
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        Debug.LogError("ENTE");
     }
 }

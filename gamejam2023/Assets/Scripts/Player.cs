@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     private GameManager _gameManager;
 
+    InputAction.CallbackContext gamePadContext;
+
 
 
     bool modifierPressed;
@@ -33,15 +35,7 @@ public class Player : MonoBehaviour
 
     public void OnPlayerMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            motion = context.ReadValue<Vector2>();
-
-        }
-        else
-        {
-            motion  = Vector2.zero;
-        }
+         gamePadContext = context;
     }
 
 
@@ -59,43 +53,37 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
-        {
-            SetMovePlayer(Vector2.zero);
-        }
-
-
         if (Input.GetKey(KeyCode.W))
         {
-            SetMovePlayer(Vector2.up);
+            motion = Vector2.up;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            SetMovePlayer(Vector2.left);
-
+            motion = Vector2.left;
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            SetMovePlayer(Vector2.down);
+            motion = Vector2.down;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            SetMovePlayer(Vector2.right);
+            motion = Vector2.right;
         }
 
+        else if(gamePadContext.performed) 
+        {
+            motion = gamePadContext.ReadValue<Vector2>();
+        }
+        else if(Gamepad.current != null && Gamepad.current.leftStick.value != Vector2.zero)
+        {
+            motion = Gamepad.current.leftStick.value;
+        }
         else
         {
-            Gamepad gamepad = Gamepad.current;
-            // The return value of `.current` can be null.
-            if (gamepad != null && gamepad.leftStick.value != Vector2.zero)
-            {
-                motion = gamepad.leftStick.value;
-            }
-
-            SetMovePlayer(motion);
-
+            motion = Vector2.zero;
         }
 
+        SetMovePlayer(motion);
         this.gameObject.transform.position = new Vector3(this.transform.position.x, PlayerHeight, this.transform.position.z);
 
     }
@@ -104,29 +92,17 @@ public class Player : MonoBehaviour
     {
         if (direction == Vector2.zero)
         {
-            motion = Vector2.zero;
             return;
         }
+        float degreeToMove = Vector2.SignedAngle(Vector2.up, direction);
 
-        float degreeToMove = Vector2.Angle(Vector2.up, direction);
-
-        Debug.LogError(Vector2.Angle(Vector2.up,direction));
-
-        if (direction == Vector2.up)
+        if (degreeToMove < 45 && degreeToMove >= -45)
         {
             motion = Vector2.up;
             visualBack.SetActive(true);
             visualFront.SetActive(false);
         }
-        else if (direction == Vector2.left)
-        {
-            motion = Vector2.left;
-            visualBack.GetComponent<SpriteRenderer>().flipX = false;
-            visualFront.GetComponent<SpriteRenderer>().flipX = true;
-            visualBack.SetActive(false);
-            visualFront.SetActive(true);
-        }
-        else if (direction == Vector2.right)
+        else if (degreeToMove < -45 && degreeToMove >= -135)
         {
             motion = Vector2.right;
             visualBack.GetComponent<SpriteRenderer>().flipX = true;
@@ -134,7 +110,15 @@ public class Player : MonoBehaviour
             visualBack.SetActive(false);
             visualFront.SetActive(true);
         }
-        else if (direction == Vector2.down)
+        else if (degreeToMove < 135 && degreeToMove >= 45)
+        {
+            motion = Vector2.left;
+            visualBack.GetComponent<SpriteRenderer>().flipX = false;
+            visualFront.GetComponent<SpriteRenderer>().flipX = true;
+            visualBack.SetActive(false);
+            visualFront.SetActive(true);
+        }
+        else
         {
             motion = Vector2.down;
             visualBack.SetActive(false);

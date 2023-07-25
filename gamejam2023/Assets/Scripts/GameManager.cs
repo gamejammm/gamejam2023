@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,12 @@ public class GameManager : MonoBehaviour
 
     public float StartMoney = 50f;
 
+    public float TimeToPlayInSec = 120f;
+
     private float currentMonetas;
+
+    private float currentDragonLove;
+
 
     private Inventory inventory;
 
@@ -30,6 +36,8 @@ public class GameManager : MonoBehaviour
     private bool isRecipeDropping;
 
     public bool GenerateMap = false;
+
+    public bool IsGameOver = false;
 
     //Default Map
 
@@ -63,12 +71,21 @@ public class GameManager : MonoBehaviour
 
         currentMonetas = StartMoney;
         statusUI.SetMonetasValue(currentMonetas);
+        currentDragonLove = 0;
     }
-
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if (IsGameOver)
+            return;
+        TimeToPlayInSec -= Time.deltaTime;
+        double remainingTime = TimeToPlayInSec;
+        remainingTime = Math.Truncate(remainingTime);
+        statusUI.SetTimeCounter(remainingTime.ToString());
+        if (remainingTime < 0)
+        {
+            GameOver();
+        }
     }
 
     public bool CollectItem(Item item)
@@ -100,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void DropAllBottles()
     {
+        if(IsGameOver) return;  
         if (IsBottlesDropping)
         {
             return;
@@ -120,7 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void DropReceipe()
     {
-        if (isRecipeDropping)
+        if (isRecipeDropping || IsGameOver)
             return;
 
         isRecipeDropping = true;
@@ -134,6 +152,8 @@ public class GameManager : MonoBehaviour
                 validRecipes.Add(recipeType);
                 inventory.DropRecipe(inventoryGroceries);
                 Debug.LogError("RECIPE DROP");
+                currentDragonLove += 1;
+                statusUI.SetDragonLoveValue(currentDragonLove);
             }
         }
         foreach(Recipe recipeType in validRecipes)
@@ -141,7 +161,6 @@ public class GameManager : MonoBehaviour
             recipeManager.RemoveRecipe(recipeType);
         }
         isRecipeDropping = false;
-
     }
 
     private void SetPlayer()
@@ -165,5 +184,11 @@ public class GameManager : MonoBehaviour
         }
         statusUI.SetMonetasValue(currentMonetas);
         return true;
+    }
+
+    public void GameOver()
+    {
+        Debug.LogError("GAME OVER");
+        IsGameOver= true;
     }
 }

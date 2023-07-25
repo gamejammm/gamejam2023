@@ -1,6 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 220px; flex-direction: row;">
-        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="MonetasInfo" text="Monetas:" style="width: 68px; height: 64px; background-color: rgba(55, 55, 55, 0); background-image: none;" />
-        <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="MonetasValue" style="width: 64px; height: 64px; font-size: 40px; color: rgb(255, 0, 150);" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 220px; flex-direction: row;">
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="MonetasInfo" text="Monetas:" style="width: 68px; height: 64px; background-color: rgba(55, 55, 55, 0); background-image: none;" />
+            <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="MonetasValue" style="width: 64px; height: 64px; font-size: 24px; color: rgb(0, 255, 26);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 220px; flex-direction: row;">
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="DragonLoveInfo" text="Dragon Love" style="width: 97px; height: 64px; background-color: rgba(55, 55, 55, 0); background-image: none;" />
+            <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="DragonLoveValue" style="width: 64px; height: 64px; font-size: 24px; color: rgb(255, 0, 18);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="_time" display-tooltip-when-elided="true" name="TimeCounter" style="font-size: 40px; color: rgb(5, 0, 77);" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

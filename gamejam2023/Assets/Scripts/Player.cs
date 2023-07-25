@@ -28,9 +28,7 @@ public class Player : MonoBehaviour
 
     InputAction.CallbackContext gamePadContext;
 
-
-
-    bool modifierPressed;
+    bool isPlayerStopped;
 
     Vector2 motion;
 
@@ -160,6 +158,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(isPlayerStopped)
+        { return; }
         if (other.gameObject.transform.parent.tag == "Bottle" || other.gameObject.transform.parent.tag == "Shelf")
         {
             Item item;
@@ -223,6 +223,11 @@ public class Player : MonoBehaviour
             shelf.ActivateShelf(false);
             shelfToCollectFrom = null;
         }
+    }
+
+    public void StopPlayer()
+    {
+        isPlayerStopped= true;
     }
 
   }

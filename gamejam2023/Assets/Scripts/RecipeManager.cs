@@ -27,8 +27,8 @@ public class RecipeManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        if(!IsRecipeCreating) 
+    {
+        if(!IsRecipeCreating && !gameManager.IsGameOver) 
         {
             IsRecipeCreating = true;
             StartCoroutine(CreateRecipe());

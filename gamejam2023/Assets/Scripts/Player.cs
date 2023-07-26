@@ -175,6 +175,7 @@ public class Player : MonoBehaviour
                 if (item != null)
                 {
                     shelf.ActivateShelf(true);
+                    Debug.LogError("YES: " + shelf.name);
                     shelfToCollectFrom = shelf;
                 }
             }
@@ -220,8 +221,12 @@ public class Player : MonoBehaviour
                 Debug.LogError("shelf does not have shelf Component");
                 return;
             }
-            shelf.ActivateShelf(false);
-            shelfToCollectFrom = null;
+            if (shelf.IsHighlighted)
+            {
+                shelf.ActivateShelf(false);
+                Debug.LogError("NO: " + shelf.name);
+                shelfToCollectFrom = null;
+            }
         }
     }
 

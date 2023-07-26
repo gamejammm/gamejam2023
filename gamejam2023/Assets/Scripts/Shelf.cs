@@ -18,6 +18,9 @@ public class Shelf : MonoBehaviour
 
     public Transform ItemSpawnPosition;
 
+    public bool IsHighlighted
+    { get; private set; }
+
     void Start()
     {
         shelfCollider = this.GetComponent<Collider>();
@@ -36,6 +39,7 @@ public class Shelf : MonoBehaviour
 
     public void ActivateShelf(bool activate)
     {
+        IsHighlighted = activate;
         shelfActivateObject.SetActive(activate);
     }
 }
